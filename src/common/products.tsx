@@ -6,8 +6,6 @@ export interface IProducts {
     name: string,
     price: number
 }
-
-
 export const SchemaProducts = Joi.object({
     id: Joi.number(),
     name: Joi.string().trim().required().messages({
@@ -18,3 +16,4 @@ export const SchemaProducts = Joi.object({
         "string.positive": "Price is positive "
     })
 })
+

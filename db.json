@@ -1,31 +1,55 @@
 {
   "products": [
     {
-      "name": "product 2 ",
-      "price": "2",
-      "id": 2
+      "name": "Conan movie 2",
+      "price": 14,
+      "id": 7
     },
     {
-      "name": "product update",
-      "price": "2",
-      "id": 5
+      "name": "Cá",
+      "price": 41,
+      "id": 9
+    },
+    {
+      "name": "bánh gạo",
+      "price": 145,
+      "id": 11
+    },
+    {
+      "name": "Hương",
+      "price": 74,
+      "id": 12
+    },
+    {
+      "name": "Bánh nếp",
+      "price": 74,
+      "id": 14
     },
     {
       "name": "product new",
-      "price": "41",
-      "id": 6
+      "price": 253,
+      "id": 15
     },
     {
-      "name": "Conan tái bản 1",
-      "price": "56",
-      "id": 10
+      "name": "product new 23",
+      "price": 14,
+      "id": 16
     }
   ],
-  "comments": [
+  "users": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "email": "hiep@gmail.com",
+      "password": "$2a$10$.2qkvD2dSg4nj.tzAIcSYO1nGmcrj6D9KFGjuIvujzGIbzvS5XvoG",
+      "name": "hoa",
+      "role": "admin",
+      "id": 3
+    },
+    {
+      "email": "linh@gmail.com",
+      "password": "$2a$10$0p9EMJSRnK6xz3ofsdRiFOER6lydUSCxQPM14MYzSAR7rN3Q/9d2i",
+      "name": "Cá",
+      "role": "member",
+      "id": 4
     }
   ],
   "profile": {

@@ -1,5 +1,5 @@
 import { createContext, useReducer } from 'react'
-import { IProducts } from '../interfaces/products'
+import { IProducts } from '../common/products'
 
 
 export const ProductContext = createContext([] as any)
