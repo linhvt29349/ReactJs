@@ -1,8 +1,34 @@
 import { Link } from "react-router-dom"
+import { useContext } from "react"
+import { UserContext } from "@/store/users"
+import {
+    ActivityIcon,
+    CreditCard,
+    LogOut,
+    Mail,
+    Rocket,
+    RockingChair,
+    RollerCoaster,
+    User
+} from "lucide-react"
+
+import { Button } from "@/components/ui/button"
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 
 const HeaderBase = () => {
+    const { user, setUser } = useContext(UserContext)
+
+
     return (
-        <header className="bg-white mt-[30px]">
+        <header className="bg-white mt-[20px]">
             <div
                 className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8"
             >
@@ -54,19 +80,54 @@ const HeaderBase = () => {
 
                     <div className="flex items-center gap-4">
                         <div className="sm:flex sm:gap-4">
-                            <Link to={'login'}
-                                className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
+                            {!user || Object.keys(user).length === 0 ? (
+                                <>
+                                    <Link to={'login'}
+                                        className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
 
-                            >
-                                Login
-                            </Link>
+                                    >
+                                        Login
+                                    </Link>
 
-                            <Link to={'register'}
-                                className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
+                                    <Link to={'register'}
+                                        className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
 
-                            >
-                                Register
-                            </Link>
+                                    >
+                                        Register
+                                    </Link>
+                                </>) : (<DropdownMenu>
+                                    <DropdownMenuTrigger asChild>
+                                        <Avatar>
+                                            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                                            <AvatarFallback>{user?.user?.name}</AvatarFallback>
+                                        </Avatar>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent className="w-56">
+                                        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+
+                                        <DropdownMenuGroup>
+                                            <DropdownMenuItem>
+                                                <User className="mr-2 h-4 w-4" />
+                                                <span >{user?.user?.name}</span>
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem>
+                                                <Mail className="mr-2 h-4 w-4" />
+                                                <span >{user?.user?.email}</span>
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem>
+                                                <CreditCard className="mr-2 h-4 w-4" />
+                                                <span >{user?.user?.role}</span>
+                                            </DropdownMenuItem>
+                                        </DropdownMenuGroup>
+
+                                        <DropdownMenuItem>
+                                            <LogOut className="mr-2 h-4 w-4" />
+                                            {!user || Object.keys(user).length === 0 ? null : <span onClick={() => setUser({})} >Log out</span>}
+
+                                        </DropdownMenuItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>)}
+
                         </div>
 
                         <button

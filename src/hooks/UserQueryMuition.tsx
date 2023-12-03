@@ -3,6 +3,8 @@ import { IUsers, IUsersSignIn, SchemaUsers, SchemaUsersSignIN } from "@/common/u
 import { joiResolver } from "@hookform/resolvers/joi"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useForm } from "react-hook-form"
+import { useContext } from "react"
+import { UserContext } from "@/store/users"
 
 type UserQuery = {
     action: "SIGNIN" | "SIGNUP",
@@ -12,6 +14,8 @@ type UserQuery = {
 }
 export const UserQueryMuition = ({ action, onSuccess }: UserQuery) => {
     const useQuery = useQueryClient()
+    const { setUser } = useContext(UserContext)
+
     const { mutate, ...rest } = useMutation({
         mutationFn: async (user: any) => {
             switch (action) {
@@ -23,7 +27,8 @@ export const UserQueryMuition = ({ action, onSuccess }: UserQuery) => {
                     return null
             }
         },
-        onSuccess: () => {
+        onSuccess: (data: any) => {
+            setUser(data)
             useQuery.invalidateQueries({ queryKey: ["USER_KEYS"] })
             onSuccess && onSuccess()
         },

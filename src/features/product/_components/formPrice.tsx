@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { FormControl, FormField, FormItem, Form } from "@/components/ui/form"
+import { FormControl, FormField, FormItem, Form, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/components/ui/use-toast"
 import { usseQueryMuition } from "@/hooks/useQueryMution"
@@ -64,8 +64,9 @@ const FormPrice = ({ data }: PropName) => {
                             render={({ field }) => (
                                 <FormItem>
                                     <FormControl>
-                                        <Input {...field} placeholder='Giá sản phẩm' />
+                                        <Input {...field} placeholder='Giá sản phẩm' type="number" />
                                     </FormControl>
+                                    <FormMessage />
                                 </FormItem>
                             )}
                         />

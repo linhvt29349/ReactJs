@@ -1,5 +1,5 @@
 import HeaderBase from "@/components/Headers/HeaderBase"
-import { Link, Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 
 
 
@@ -367,7 +367,8 @@ const Footer = () => {
         </footer >
     )
 }
-const Layout = () => {
+
+const BaseLayout = () => {
     return (
         <>
             <HeaderBase />
@@ -380,4 +381,4 @@ const Layout = () => {
     )
 }
 
-export default Layout
+export default BaseLayout

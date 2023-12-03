@@ -1,14 +1,15 @@
 import { Button } from "@/components/ui/button"
-import { FormControl, FormField, FormItem, FormLabel, Form } from "@/components/ui/form"
+import { FormControl, FormField, FormItem, FormLabel, Form, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
 import { UserQueryMuition } from "@/hooks/UserQueryMuition"
 import { IUsersSignIn } from "@/common/users"
 import { SubmitHandler } from "react-hook-form"
-
+import { useNavigate } from "react-router-dom"
 
 
 const SignIN = () => {
+    const navigate = useNavigate()
     const { formSignIN, onSubmit } = UserQueryMuition({
         action: "SIGNIN",
         onSuccess() {
@@ -18,11 +19,10 @@ const SignIN = () => {
                 variant: "add"
             })
             formSignIN.reset()
+            setTimeout(() => navigate('/'))
         },
     })
     const onhandlerSubmit: SubmitHandler<IUsersSignIn> = (value: IUsersSignIn) => {
-        console.log(value);
-
         onSubmit(value)
     }
     return (
@@ -45,9 +45,9 @@ const SignIN = () => {
                             <FormItem>
                                 <FormLabel>Email</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Email" {...field} />
+                                    <Input placeholder="Email" {...field} type="email" />
                                 </FormControl>
-
+                                <FormMessage />
                             </FormItem>
                         )}
                     />
@@ -58,9 +58,9 @@ const SignIN = () => {
                             <FormItem>
                                 <FormLabel>Password</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Password" {...field} />
+                                    <Input placeholder="Password" {...field} type="password" />
                                 </FormControl>
-
+                                <FormMessage />
                             </FormItem>
                         )}
                     />

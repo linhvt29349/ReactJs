@@ -29,11 +29,6 @@
       "name": "product new",
       "price": 253,
       "id": 15
-    },
-    {
-      "name": "product new 23",
-      "price": 14,
-      "id": 16
     }
   ],
   "users": [
@@ -45,8 +40,8 @@
       "id": 3
     },
     {
-      "email": "linh@gmail.com",
-      "password": "$2a$10$0p9EMJSRnK6xz3ofsdRiFOER6lydUSCxQPM14MYzSAR7rN3Q/9d2i",
+      "email": "a@gmail.com",
+      "password": "$2a$10$Oqkg.fQTJwD7mW3vddLFRu6X6s/SCUoCRazRpVXTCy/QG04iXsCW.",
       "name": "Cá",
       "role": "member",
       "id": 4

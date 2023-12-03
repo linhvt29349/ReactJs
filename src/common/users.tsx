@@ -6,9 +6,10 @@ export const SchemaUsers = Joi.object({
     name: Joi.string().trim().required().messages({
         "string.empty": "Bắt buộc nhập tên"
     }),
-    email: Joi.string().required().messages({
-        "string.empty": "Bắt buộc nhập tên",
-        "string.email": "Email chưa đúng định dạng",
+    email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required().messages({
+        "string.empty": "Bắt buộc nhập email",
+        "string.email": "Email không đúng định dạng",
+
     }),
     password: Joi.string().trim().required().messages({
         "string.empty": "Bắt buộc nhập password"
@@ -19,9 +20,9 @@ export const SchemaUsers = Joi.object({
     role: Joi.string()
 })
 export const SchemaUsersSignIN = Joi.object({
-    email: Joi.string().required().messages({
-        "string.empty": "Bắt buộc nhập tên",
-        "string.email": "Email chưa đúng định dạng",
+    email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required().messages({
+        "string.empty": "Bắt buộc nhập email",
+        "string.email": "Email không đúng định dạng",
     }),
     password: Joi.string().trim().required().messages({
         "string.empty": "Bắt buộc nhập password"
@@ -32,7 +33,7 @@ export interface IUsers {
     id?: number,
     name: string,
     email: string,
-    password: string,
+    password?: string,
     passwordConfirm?: string,
     role: "admin" | "member"
 }

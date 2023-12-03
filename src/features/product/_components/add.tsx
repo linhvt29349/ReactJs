@@ -1,7 +1,7 @@
 import { IProducts } from "../../../common/products"
 import { SubmitHandler } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
-import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { usseQueryMuition } from "@/hooks/useQueryMution"
@@ -51,7 +51,7 @@ const AddPage = () => {
                                 <FormControl>
                                     <Input placeholder="Tên sản phẩm" {...field} />
                                 </FormControl>
-
+                                <FormMessage />
                             </FormItem>
                         )}
                     />
@@ -62,9 +62,9 @@ const AddPage = () => {
                             <FormItem>
                                 <FormLabel>Price</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Giá sản phẩm" {...field} />
+                                    <Input placeholder="Giá sản phẩm" {...field} type="number" />
                                 </FormControl>
-
+                                <FormMessage />
                             </FormItem>
                         )}
                     />

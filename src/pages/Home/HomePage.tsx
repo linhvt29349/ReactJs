@@ -108,8 +108,8 @@ const HomePage = () => {
                     </header>
 
                     <ul className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-4">
-                        {data?.map((item: IProducts) => {
-                            return (<li>
+                        {data?.map((item: IProducts, index: number) => {
+                            return (<li key={index}>
                                 <a href="#" className="block overflow-hidden group">
                                     <img
                                         src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"

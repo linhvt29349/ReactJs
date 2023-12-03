@@ -1,10 +1,12 @@
 import HeaderAdmin from "@/components/Headers/HeaderAdmin"
 import SileMenu from "@/components/SileMenu"
+
 import { Outlet } from "react-router-dom"
 
 
 
 const LayoutAdmin = () => {
+
     return (
         <>
             <HeaderAdmin />

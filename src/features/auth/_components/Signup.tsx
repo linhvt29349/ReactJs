@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { FormControl, FormField, FormItem, FormLabel, Form } from "@/components/ui/form"
+import { FormControl, FormField, FormItem, FormLabel, Form, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
 import { UserQueryMuition } from "@/hooks/UserQueryMuition"
@@ -55,7 +55,7 @@ const SignUP = () => {
                                 <FormControl>
                                     <Input placeholder="Tên tài khoản" {...field} />
                                 </FormControl>
-
+                                <FormMessage />
                             </FormItem>
                         )}
                     />
@@ -66,9 +66,9 @@ const SignUP = () => {
                             <FormItem>
                                 <FormLabel>Email</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Email" {...field} />
+                                    <Input placeholder="Email" {...field} type="email" />
                                 </FormControl>
-
+                                <FormMessage />
                             </FormItem>
                         )}
                     />
@@ -79,9 +79,9 @@ const SignUP = () => {
                             <FormItem>
                                 <FormLabel>Password</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Password" {...field} />
+                                    <Input placeholder="Password" {...field} type="password" />
                                 </FormControl>
-
+                                <FormMessage />
                             </FormItem>
                         )}
                     />
@@ -92,9 +92,9 @@ const SignUP = () => {
                             <FormItem>
                                 <FormLabel>Password Confirm</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="PasswordConfirm" {...field} />
+                                    <Input placeholder="PasswordConfirm" {...field} type="password" />
                                 </FormControl>
-
+                                <FormMessage />
                             </FormItem>
                         )}
                     />

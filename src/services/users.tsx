@@ -24,8 +24,6 @@ export const Signup = async (user: IUsers) => {
 export const Signin = async (user: IUsersSignIn) => {
     try {
         const response: AxiosResponse<IUsersSignIn> = await intrences.post('/login', user)
-        console.log(response
-            .data);
 
         return response.data || []
     } catch (error: any) {
